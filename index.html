@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, user-scalable=no">
+    <title>testing for SunFarmer</title>
+    <link rel = "stylesheet" href="./style.css">
+</head>
+<body>
+        
+    <ul class="statistics">
+        <li class="statistics__item">
+            <span id = "liters_pumped" class="js_climate_increment statistics__number statistics__number--light" data-increment="6.2930168748943" data-number="3457595670.619">3,457,596,408</span>
+            <span class="statistics__description"> Units of electricity produced</span>
+        </li>
+        <li class="statistics__item">
+            <span id = "electricity_produced" class="js_climate_increment statistics__number statistics__number--dark" data-increment="2.6410486058261" data-number="747670597.1945">747,670,907</span>
+            <span class="statistics__description">KG CO2 prevented</span>
+        </li>
+    </ul>
+
+    <script type = "text/javascript">
+            
+        function increment() {
+            var numWCommas = document.getElementById('liters_pumped').innerHTML
+            console.log(numWCommas)
+            var numWOCommas = numWCommas.replace(/,/g,"");
+            console.log(numWOCommas)
+            var n = parseInt(numWOCommas, 10)
+            console.log(n)
+            n++;
+          document.getElementById('liters_pumped').innerHTML =  numberWithCommas(n);
+        }
+        function numberWithCommas(x) {
+            console.log(x)
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+        setInterval('increment()', 250);
+      </script>
+</body>
+
